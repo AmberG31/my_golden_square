@@ -9,5 +9,3 @@ class Present
     return @contents
   end
 end
-
-Present
