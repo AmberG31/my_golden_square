@@ -16,16 +16,3 @@ describe "task_tracker method" do
   end
 
 end
-
-
-
-
-
-
-# test_checker("")
-# # => "Error: empty string."
-
-# test_checker("#TODO")
-# # => true
-# test_checker("Some text")
-# # => false

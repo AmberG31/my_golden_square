@@ -51,8 +51,6 @@ describe GrammarStats do
       expect(new_text.percentage_good).to eq "75% has passed so far"
     end 
     
-    
   end
 
-  
 end
