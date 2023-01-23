@@ -17,7 +17,7 @@
 
 class TodoList
   def initializer
-    # tbc
+    # @tasks - will be an empty array where new tasks will be stored
   end
   
   def add(task) # adds a task to an array
@@ -30,7 +30,8 @@ class TodoList
   
   def complete(task) # task is a string which will be completed
     # throws an error if there is no such task
-  end  
+  end
+end
   
 ```
 
