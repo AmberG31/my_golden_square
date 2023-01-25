@@ -25,8 +25,8 @@ class DiaryEntry
   def reading_chunk(wpm, minutes)
     num_words_we_can_read = wpm * minutes
     start_from = @furthest_word_read
-    end_at = @furthest_word_read + num_words_we_can_read
-    word_list = words[start_from, end_at]
+    end_at = @furthest_word_read += num_words_we_can_read
+    word_list = words[start_from...end_at]
     if end_at >= count_words
       @furthest_word_read = 0
     else
@@ -44,5 +44,6 @@ class DiaryEntry
 end
 diary_entry = DiaryEntry.new("Hello", "Lorem Ipsum is simply dummy text of the printing and typesetting industry")
 diary_entry.count_words
+puts diary_entry.reading_chunk(2,1)
 puts diary_entry.reading_chunk(2,1)
 puts diary_entry.reading_chunk(2,1)
