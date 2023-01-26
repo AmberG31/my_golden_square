@@ -11,7 +11,8 @@ class TodoList
 
   def incomplete
     fail "There are no todos" unless @todos.length > 0
-    incomplete_task = @todos.select { |todo| !todo.done? } # done? = false, !done? = true
+    incomplete_task = @todos.reject { |todo| todo.done? }
+    # incomplete_task = @todos.select { |todo| !todo.done? } # done? = false, !done? = true
     if incomplete_task.length > 0
       return incomplete_task.map { |todo| todo.task }
     else
