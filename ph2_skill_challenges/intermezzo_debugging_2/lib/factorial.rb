@@ -1,9 +1,10 @@
 def factorial(n)
   product = 1
   while n > 0
-    binding.irb # Mystery new line!
+    # binding.irb # Mystery new line!
+    product *= n # change product with n places from line 5 to line 6 
     n -= 1
-    product *= n
+    
   end
   product
 end
