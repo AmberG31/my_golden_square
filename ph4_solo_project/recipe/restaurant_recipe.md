@@ -137,14 +137,14 @@ combinations that reflect the ways in which the system will be used._
 # EXAMPLE
 
 # 1
-order = Restaurant
+order = Restaurant.new
 new_order = Menu.new("chicken strips" 5)
 new_order.add
 new_order.show_list
 order.view_menu => "chicken strips" price: £5
 
 # 2
-order = Restaurant
+order = Restaurant.new
 new_order = Menu.new("chicken strips" 5)
 new_order = Menu.new("ribs" 7)
 new_order.add
@@ -152,7 +152,7 @@ new_order.show_list
 order.view_menu => "chicken strips" price: £5, "ribs" price: £7
 
 # 3
-orders = Restaurant
+orders = Restaurant.new
 new_order = Menu.new("chicken strips" 5)
 new_order.add
 orders.add_to_cart(chicken strips, 1)
@@ -161,7 +161,7 @@ orders.order => "Thank you! Your order was placed and will be delivered before 1
 => send_SMS
 
 # 4
-orders = Restaurant
+orders = Restaurant.new
 new_order = Menu.new("chicken strips" 5)
 new_order.add
 orders.add_to_cart(chicken strips, 1)
@@ -170,7 +170,7 @@ orders.order => "Order accepted. You will receive SMS with delivery time shortly
 => send_SMS
 
 # 5
-orders = Restaurant
+orders = Restaurant.new
 new_order = Menu.new("chicken strips" 5)
 new_order.add
 orders1.add_to_cart(chicken strips, 1)
@@ -178,7 +178,7 @@ orders1.order
 orders.print_receipt (chicken strips. Grand total £5)
 
 # 6
-orders = Restaurant
+orders = Restaurant.new
 new_order = Menu.new("chicken strips" 5)
 new_order = Menu.new("ribs" 7)
 new_order.add
@@ -188,7 +188,7 @@ orders.order
 orders.print_receipt => "chicken strips, ribs. Grand total £12"
 
 # 7
-orders = Restaurant
+orders = Restaurant.new
 new_order = Menu.new("chicken strips" 5)
 new_order = Menu.new("ribs" 7)
 new_order.add
@@ -198,7 +198,7 @@ orders.order
 orders.print_receipt => "chicken strips x2, price: £5. ribs x2, prints: £7. Grand total £24"
 
 # 8
-orders = Restaurant
+orders = Restaurant.new
 new_order = Menu.new("chicken strips" 5)
 new_order.add
 orders1.add_to_cart(chicken strips, 1)
@@ -240,33 +240,33 @@ order.remove_dish("chicken strips")
 order.show_list => "The menu is empty"
 
 # 5
-my_order = Restaurant
+my_order = Restaurant.new
 my_order.add_to_cart("chicken strips", 1)
 my_order.view_cart => ("chicken strips" x1)
 
 # 6
-my_order = Restaurant
+my_order = Restaurant.new
 my_order.add_to_cart("chicken strips", 3)
 my_order.add_to_cart("ribs", 1)
 my_order.view_cart => ("chicken strips" x3, "ribs" x1)
 
 
 # 7
-my_order = Restaurant
+my_order = Restaurant.new
 my_order.add_to_cart("chicken strips", 3)
 my_order.add_to_cart("ribs", 1)
 my_order.remove_from_cart("ribs", 1)
 my_order.view_cart => ("chicken strips" x3)
 
 # 8
-my_order = Restaurant
+my_order = Restaurant.new
 my_order.add_to_cart("chicken strips", 3)
 my_order.add_to_cart("ribs", 1)
 my_order.remove_from_cart("chicken strips", 2)
 my_order.view_cart => ("chicken strips" x1, "ribs" x1)
 
 # 9
-my_order = Restaurant
+my_order = Restaurant.new
 my_order.add_to_cart("chicken strips", 1)
 my_order.remove_from_cart("chicken strips", 1)
 my_order.view_cart => "Your cart is empty"

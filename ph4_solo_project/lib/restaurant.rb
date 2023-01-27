@@ -1,26 +1,28 @@
 class Restaurant
 
   def initialize
-    # ...
+   @menu = Menu.new
+   @my_cart = Cart.new
   end
 
-  def view_menu #INTEG
-    # Returns the list of dishes with prices from Menu
+  def add_to_menu(name, price) #is an instance of Menu add_dish - 
+    @menu.add_dish(name, price)
+  end
+  
+  def view_menu #hot to get this display show_list from Menu file
+    return @menu.show_list
   end
 
-  def add_to_cart(dish, quantity) #UNIT
-    # dish and quantity added from the view_menu to the cart (hash)
-    # can select multiple dishes
-    # returns nothing
+  def add_to_cart(name, quantity) 
+    @my_cart.add(name, quantity)
   end
   
-  def remove_from_cart(dish, quantity) #UNIT
-    # dish and quantity removed from the cart (hash)
-    # returns nothing
+  def remove_from_cart(name, quantity)
+    @my_cart.remove(name, quantity)
   end
   
-  def view_cart #UNIT
-    # returns dish and price of the items added in the cart (hash)
+  def view_my_cart
+    return @my_cart.view_cart
   end
   
   def order #INTEG
