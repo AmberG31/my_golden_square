@@ -116,7 +116,11 @@ class DiaryEntry
   end
 end
 
-class Todo_List(todo)
+class TodoList
+  def initialize
+    # ...
+  end
+  
   def show_todo # is a string
     # returns the todo
   end
@@ -129,6 +133,7 @@ class Todo_List(todo)
   def is_done? 
     # returns true or false
   end
+end
 
 ```
 
