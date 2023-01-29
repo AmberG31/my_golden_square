@@ -1,6 +1,9 @@
+require "./menu"
+
 class Cart
   def initialize 
     @cart = []
+    @total_price = Menu.new
   end
   
   def add(name, quantity) 
@@ -26,11 +29,15 @@ class Cart
     return item.join(", ")
   end
 
-  def print_receipt #INTEG
-    # prints a list of dishes with prices and grand total
-  end
-  
-  def send_SMS #INTEG
-    # sends SMS to the customer confirming order is placed and when it's arriving
+  def print_receipt 
+    total = @cart.total_price # is not pulling correctly from menu.rb. Shoul I add
+                              # the :price in this file?? 
+    return "#{view_cart}. Grand total: #{total}" 
   end
 end
+
+order = Cart.new
+order.add("chicken strips", 1)
+order.add("ribs", 3)
+puts order.print_receipt
+#order.send_SMS

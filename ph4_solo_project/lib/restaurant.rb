@@ -1,8 +1,13 @@
+require "./menu"
+require "./cart"
+require "./fake_SMS"
+
 class Restaurant
 
   def initialize
    @menu = Menu.new
    @my_cart = Cart.new
+   # @SMS = FakeSMS.new(account_sid, auth_token)
   end
 
   def add_to_menu(name, price) #is an instance of Menu add_dish - 
@@ -25,7 +30,12 @@ class Restaurant
     return @my_cart.view_cart
   end
   
-  def order #INTEG
-    # when ordered, a receipt is printed and SMS is sent 
+  def order #
+    @my_cart.print_receipt
+    # @SMS.send_SMS(to)
   end
 end
+
+order = Restaurant.new
+order.add_to_cart("chicken strips", 1)
+puts order.order

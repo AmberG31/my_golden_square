@@ -18,4 +18,17 @@ class Menu
     end
     return item.join(", ")
   end
+  
+  def total_price # working fine on here, but not working in cart.rb
+    total = @menu_list.reduce(0) { |sum, price| sum + price[:price] }
+      #"#{dish[:name]} £#{dish[:price]}"
+    return total
+  end
 end
+
+order = Menu.new
+order.add_dish("chicken strips", 5)
+order.add_dish("ribs", 7)
+order.add_dish("ribs", 7)
+order.remove_dish("chicken strips")
+puts order.total_price

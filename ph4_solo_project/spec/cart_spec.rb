@@ -53,4 +53,12 @@ RSpec.describe "Cart methods" do
       expect{ order.view_cart }.to raise_error "Your cart is empty"
     end
   end
+  
+  context "when the there is one item" do
+    it "#print_receipt returns the cart and grand total" do
+      order = Cart.new
+      order.add("chicken strips", 1)
+      expect(order.print_receipt).to eq "chicken strips x1. Grand total: £5.00"
+    end
+  end
 end
