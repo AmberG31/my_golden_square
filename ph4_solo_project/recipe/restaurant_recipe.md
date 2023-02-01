@@ -35,38 +35,53 @@ uses asciiflow.com but you could also use excalidraw.com, draw.io, or miro.com_
 ┌──────────────────────────────┐
 │ Restaurant                   │
 │                              │
-│- view_menu(dish, price)      │
-│- add_to_cart(dish, quantity) │
-│- remove_from_cart(dish, quantity) │
-│- view_cart  
+│- add_to_menu(name,price)     │
+ - view_menu                   │
+│- add_to_cart(name, quantity) │
+│- remove_from_cart(name, quantity) │
+│- view_my_cart  
 │- order 
 └───────────┬──────────────────┘
 
 ┌─────────────────────────┐
 │ Cart                    │
 │                         │
-│- print_receipt          │
-│- send_SMS               │
+│- add(name, quantity)
+ - remove(name, quantity)
+ - view_cart
+ - print_receipt          │
 └─────────────────────────┘
 
 ┌─────────────────────────┐
 │ Menu                    │
 │                         │
-│- add_dish(dish, price)  │
-│- remove_dish(dish)
+│- add_dish(name, price)  │
+│- remove_dish(name)
 │- show_list
+ - total_price
 └─────────────────────────┘
 
+┌─────────────────────────┐
+│ FakeSMS                 │
+│                         │
+│- send_SMS)              │
+└─────────────────────────┘
 
 ```
 
 _Also design the interface of each class in more detail._
 
 ```ruby
+# Has been updated to match the new layout of classes
+
 class Restaurant
 
   def initialize
     # ...
+  end
+  
+  def add_to_menu
+    # Is an instance of Menu add_dish
   end
 
   def view_menu #INTEG
@@ -75,7 +90,6 @@ class Restaurant
 
   def add_to_cart(dish, quantity) #UNIT
     # dish and quantity added from the view_menu to the cart (hash)
-    # can select multiple dishes
     # returns nothing
   end
   
@@ -98,12 +112,21 @@ class Cart
     # ..
   end
 
-  def print_receipt #INTEG
-    # prints a list of dishes with prices and grand total
+  def add(name, quantity)
+    # adds name and quantity of the dish to the @cart array
   end
   
-  def send_SMS #INTEG
-    # sends SMS to the customer confirming order is placed and when it's arriving
+  def remove(name, quantity)
+    # removes name and quantity from @cart array
+  end
+  
+  def view_cart
+    # returns list of dishes and their quantities 
+  end
+
+  def print_receipt #INTEG
+    # prints a list of dishes, their quantities with prices and grand total
+    # sends SMS to the customer with eta of the order
   end
 end
 
@@ -112,19 +135,22 @@ class Menu
     # ...
   end
   
-  def add_dish(dish, price)  #UNIT
+  def add_dish(name, price)  #UNIT
     # adds a dish to a hash
   end
   
-  def remove_dish(dish)  #UNIT
+  def remove_dish(name)  #UNIT
     # removes dish from a hash
   end
   
   def show_list #UNIT
     # returns the list of dishes added
   end
-end
   
+  def total_price
+    # returns the sum of dishes 
+  end
+end
   
 ```
 
@@ -134,6 +160,9 @@ _Create examples of the classes being used together in different situations and
 combinations that reflect the ways in which the system will be used._
 
 ```ruby
+
+# DOES NOT MATCH THE NEW LAYOUT
+
 # EXAMPLE
 
 # 1
