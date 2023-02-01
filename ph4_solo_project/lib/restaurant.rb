@@ -1,6 +1,6 @@
-require "./menu"
-require "./cart"
-require "./fake_SMS"
+# require "./menu"
+# require "./cart"
+# require "./fake_SMS"
 
 class Restaurant
 
@@ -30,12 +30,20 @@ class Restaurant
     return @my_cart.view_cart
   end
   
-  def order #
-    @my_cart.print_receipt
-    # @SMS.send_SMS(to)
+  def order
+    @my_cart.print_receipt #
+    # @SMS.send_SMS
   end
 end
 
-order = Restaurant.new
-order.add_to_cart("chicken strips", 1)
-puts order.order
+# order = Restaurant.new
+# order.add_to_cart("chicken strips", 1)
+# puts order.order
+
+
+# things to check: 
+# 1. How to write twilio rspec? 
+# 2. How to create ENV variables? (fake_SMS)
+# 3. How to test SMS with ruby? 
+# 4. To use total_price from menu.rb in cart.rb for print_receipt. Do I need to declare new instance variable? is it enought ot add "require"?  
+# 5. Should I add :price in cart.rb too and amend all my tests or is there another way to calculate total cost? 

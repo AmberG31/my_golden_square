@@ -21,7 +21,7 @@ class Menu
   
   def total_price # working fine on here, but not working in cart.rb
     total = @menu_list.reduce(0) { |sum, price| sum + price[:price] }
-      #"#{dish[:name]} £#{dish[:price]}"
+    # would I declare att_reader :total? 
     return total
   end
 end

@@ -3,6 +3,7 @@ require "restaurant" #(MyDiary)
 require "cart" #(DiaryEntry)
 
 RSpec.describe "integration of Restaurant" do
+  
   context "#view_menu when there is one dish" do
     it "returns the dish and the price" do
       order = Restaurant.new #no need to call Menu.new as it's already initialized in the method
@@ -60,23 +61,14 @@ RSpec.describe "integration of Restaurant" do
     end
   end
   
-  context "#order" do
-    it "returns message order is placed, detailed receipt and sends SMS" do
-      order = Restaurant.new
-      order.add_to_cart("chicken strips", 1)
-      expect(order.order).to eq "Thank you! Your order is placed and will be delivered before 18:52"
-      # this test is only testing hte message as a string. not peint_receipt or SMS methods
-    end
-  end
-  
-  it "returns message order is placed, detailed receipt and sends SMS" do
-      order = Restaurant.new
-      order.add_to_cart("chicken strips", 1)
-      expect(order.order).to eq "Thank you! Your order is placed and will be delivered before 18:52"
-      expect(order.order).to eq # => print_receipt
-      # => send_SMS
-    end
-  end
+  #context "#order" do
+  # it "returns message order is placed, detailed receipt and sends SMS" do
+  #   order = Restaurant.new
+  #   order.add_to_cart("chicken strips", 1)
+  #   expect(order.order).to eq # => print_receipt
+  #   expect(order.order).to eq # => send_SMS
+  # end
+  #end
 
 end
 

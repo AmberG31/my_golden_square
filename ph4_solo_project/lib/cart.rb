@@ -3,7 +3,7 @@ require "./menu"
 class Cart
   def initialize 
     @cart = []
-    @total_price = Menu.new
+    @menu = Menu.new
   end
   
   def add(name, quantity) 
@@ -29,15 +29,15 @@ class Cart
     return item.join(", ")
   end
 
-  def print_receipt 
-    total = @cart.total_price # is not pulling correctly from menu.rb. Shoul I add
-                              # the :price in this file?? 
+  def print_receipt # need to create / pull the price from somewhere
+    total = @menu.total_price # is not pulling correctly from menu.rb. Shoul I add
+                              # the :price in this file?? or should I merge Cart with Menu?
     return "#{view_cart}. Grand total: #{total}" 
   end
 end
 
 order = Cart.new
 order.add("chicken strips", 1)
-order.add("ribs", 3)
+order.add("ribs", 3) # 7 + 7 + 7
 puts order.print_receipt
 #order.send_SMS

@@ -61,4 +61,6 @@ RSpec.describe "Cart methods" do
       expect(order.print_receipt).to eq "chicken strips x1. Grand total: £5.00"
     end
   end
+  
+  # the example above - need to create / pull the price from somewhere
 end
